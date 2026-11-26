@@ -12,7 +12,9 @@ import {
   HiArrowLeft,
   HiPaperAirplane,
   HiOfficeBuilding,
-  HiClipboardCheck
+  HiClipboardCheck,
+  HiClock,
+  HiCog
 } from 'react-icons/hi'
 
 import { Link } from 'react-router-dom'
@@ -56,7 +58,7 @@ function ViewReport() {
         <img
           src="https://images.squarespace-cdn.com/content/v1/573365789f726693272dc91a/1704992146415-CI272VYXPALWT52IGLUB/AdobeStock_201419293.jpeg?format=1500w"
           alt="Road hazard"
-          className="w-full h-100 object-cover rounded-xl mb-5"
+          className="w-full h-80 object-cover rounded-xl mb-5"
         />
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -148,7 +150,7 @@ function ViewReport() {
 
       <Card className="shadow-sm border border-gray-100 p-4">
 
-        <div className="flex items-center gap-3 mb-2">
+        <div className="flex items-center gap-3 mb-4">
           <div className="bg-green-100 p-3 rounded-lg">
             <HiPaperAirplane className="text-2xl text-[#26745B]" />
           </div>
@@ -159,79 +161,214 @@ function ViewReport() {
             </h2>
 
             <p className="text-sm text-gray-500">
-              Send approved hazard reports to the responsible department.
+              Send the approved report to the responsible department.
             </p>
           </div>
         </div>
 
-        <div className="mt-4">
-          <label className="block text-sm font-medium text-gray-700 mb-2">
-            Select Responsible Department
-          </label>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
 
-          <select className="w-full border border-gray-300 rounded-lg p-3 text-sm focus:ring-[#26745B] focus:border-[#26745B]">
-            <option value="">Select Department</option>
-            <option value="municipality">Municipal Corporation</option>
-            <option value="pothole">Road Maintenance Department</option>
-            <option value="pwd">Public Works Department (PWD)</option>
-            <option value="traffic">Traffic Police Department</option>
-          </select>
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              Responsible Department
+            </label>
+
+            <select className="w-full border border-gray-300 rounded-lg p-3 text-sm">
+              <option value="">Select Department</option>
+              <option>Municipal Corporation</option>
+              <option>Road Maintenance Department</option>
+              <option>Public Works Department (PWD)</option>
+              <option>National Highways Authority (NHAI)</option>
+              <option>Traffic Police Department</option>
+            </select>
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">
+              Forwarding Method
+            </label>
+
+            <select className="w-full border border-gray-300 rounded-lg p-3 text-sm">
+              <option value="">Select Method</option>
+              <option>Email</option>
+              <option>Manual Submission</option>
+              <option>Official Portal</option>
+            </select>
+          </div>
+
         </div>
 
-        <div className="bg-gray-50 rounded-lg p-4 mt-4 space-y-3">
+        <div className="bg-gray-50 rounded-lg p-4 mt-5 space-y-4">
 
           <h3 className="font-semibold text-gray-800 flex items-center gap-2">
-            <HiOfficeBuilding className="text-[#26745B] text-lg" />
+            <HiOfficeBuilding className="text-[#26745B] text-xl" />
             Authority Contact Details
           </h3>
 
-          <p className="text-sm text-gray-500">
-            Select a department to view its contact details.
-          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
 
-          <div className="flex items-center gap-2 text-sm text-gray-600">
-            <HiMail className="text-[#26745B] text-lg" />
-            Department Email: Not selected
-          </div>
+            <div>
+              <label className="text-sm text-gray-500">
+                Department Email
+              </label>
+              <div className="flex items-center gap-2 mt-1 text-sm text-gray-700">
+                <HiMail className="text-[#26745B]" />
+                Enter verified official email
+              </div>
+            </div>
 
-          <div className="flex items-center gap-2 text-sm text-gray-600">
-            <HiPhone className="text-[#26745B] text-lg" />
-            Contact Number: Not selected
+            <div>
+              <label className="text-sm text-gray-500">
+                Contact Number
+              </label>
+              <div className="flex items-center gap-2 mt-1 text-sm text-gray-700">
+                <HiPhone className="text-[#26745B]" />
+                Enter verified contact number
+              </div>
+            </div>
+
           </div>
 
         </div>
 
-        <div className="mt-4">
+        <div className="mt-5">
           <label className="block text-sm font-medium text-gray-700 mb-2">
             Forwarding Remarks
           </label>
 
           <textarea
             rows="3"
-            placeholder="Add details or instructions for the authority..."
+            placeholder="Please inspect and repair the reported pothole at MG Road, Kochi..."
             className="w-full border border-gray-300 rounded-lg p-3 text-sm focus:ring-[#26745B] focus:border-[#26745B]"
           />
         </div>
 
-        <div className="flex items-start gap-3 bg-orange-50 border border-orange-100 rounded-lg p-3 mt-4">
+        <div className="mt-5">
+          <label className="block text-sm font-medium text-gray-700 mb-2">
+            Authority Reference Number
+          </label>
+
+          <input
+            type="text"
+            placeholder="Enter reference number after authority acknowledgement"
+            className="w-full border border-gray-300 rounded-lg p-3 text-sm"
+          />
+        </div>
+
+        <div className="flex items-start gap-3 bg-orange-50 border border-orange-100 rounded-lg p-3 mt-5">
           <HiClipboardCheck className="text-orange-600 text-xl mt-1" />
 
           <div>
             <p className="font-semibold text-sm text-orange-800">
-              Awaiting Approval
+              Awaiting Admin Approval
             </p>
 
             <p className="text-xs text-orange-700 mt-1">
-              This report must be approved by the admin before it can be forwarded to an authority.
+              Approve this report before forwarding it to an authority.
             </p>
           </div>
         </div>
 
-        <div className="flex justify-end mt-4">
+        <div className="flex justify-end mt-5">
           <Button color="success" disabled>
             <HiPaperAirplane className="mr-2 h-4 w-4" />
             Forward Report
           </Button>
+        </div>
+
+      </Card>
+
+      <Card className="shadow-sm border border-gray-100 p-4">
+
+        <h2 className="text-lg font-bold text-[#173D34] mb-4">
+          Authority Response & Repair Tracking
+        </h2>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+
+          <div className="bg-blue-50 rounded-lg p-4">
+            <HiPaperAirplane className="text-2xl text-blue-600 mb-2" />
+            <p className="text-sm text-gray-500">Forwarding Status</p>
+            <p className="font-semibold text-blue-700 mt-1">
+              Not Forwarded
+            </p>
+          </div>
+
+          <div className="bg-orange-50 rounded-lg p-4">
+            <HiClock className="text-2xl text-orange-600 mb-2" />
+            <p className="text-sm text-gray-500">Authority Response</p>
+            <p className="font-semibold text-orange-700 mt-1">
+              Awaiting Response
+            </p>
+          </div>
+
+          <div className="bg-gray-100 rounded-lg p-4">
+            <HiCog  className="text-2xl text-gray-600 mb-2" />
+            <p className="text-sm text-gray-500">Repair Status</p>
+            <p className="font-semibold text-gray-700 mt-1">
+              Not Started
+            </p>
+          </div>
+
+        </div>
+
+        <div className="border-t mt-5 pt-5">
+
+          <h3 className="font-semibold text-gray-800 mb-4">
+            Report Activity
+          </h3>
+
+          <div className="space-y-5">
+
+            <div className="flex gap-3">
+              <HiCheckCircle className="text-[#26745B] text-xl mt-1" />
+              <div>
+                <p className="font-medium text-sm text-gray-800">
+                  Hazard Report Submitted
+                </p>
+                <p className="text-xs text-gray-500">
+                  24 Nov 2026
+                </p>
+              </div>
+            </div>
+
+            <div className="flex gap-3">
+              <HiClock className="text-orange-500 text-xl mt-1" />
+              <div>
+                <p className="font-medium text-sm text-gray-800">
+                  Waiting for Admin Verification
+                </p>
+                <p className="text-xs text-gray-500">
+                  Report is pending review
+                </p>
+              </div>
+            </div>
+
+            <div className="flex gap-3 opacity-50">
+              <HiPaperAirplane className="text-gray-400 text-xl mt-1" />
+              <div>
+                <p className="font-medium text-sm text-gray-800">
+                  Forwarded to Authority
+                </p>
+                <p className="text-xs text-gray-500">
+                  Will appear after forwarding
+                </p>
+              </div>
+            </div>
+
+            <div className="flex gap-3 opacity-50">
+              <HiCog  className="text-gray-400 text-xl mt-1" />
+              <div>
+                <p className="font-medium text-sm text-gray-800">
+                  Hazard Resolved
+                </p>
+                <p className="text-xs text-gray-500">
+                  Will appear after repair confirmation
+                </p>
+              </div>
+            </div>
+
+          </div>
         </div>
 
       </Card>

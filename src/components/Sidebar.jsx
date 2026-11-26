@@ -6,7 +6,6 @@ import {
   HiDocumentText,
   HiClipboardList,
   HiCloud,
-  HiShieldCheck,
   HiLogout
 } from 'react-icons/hi'
 
@@ -56,9 +55,7 @@ function Sidebar() {
         Administration
       </p>
 
-      <Link to="/admin" className="flex items-center gap-3 p-3 rounded-lg hover:bg-white/10">
-        <HiShieldCheck /> Admin Dashboard
-      </Link>
+     
 
       <Link to="/login" className="flex items-center gap-3 p-3 rounded-lg mt-10 text-red-200 hover:bg-white/10">
         <HiLogout /> Logout
